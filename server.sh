@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 sudo apt -y && sudo apt -y upgrade && sudo apt -y install qemu-guest-agent
 
 sudo systemctl start qemu-guest-agent
@@ -23,3 +25,8 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=$2 sh -s - server --server "https://192
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 kubectl get nodes
+
+sudo rm -vf /etc/ssh/ssh_host_*
+sudo dpkg-reconfigure openssh-server
+
+sudo reboot
