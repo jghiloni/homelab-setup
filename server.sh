@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-sudo apt -y && sudo apt -y upgrade
+sudo apt -y && sudo apt -y upgrade && sudo apt -y install qemu-guest-agent
+
+sudo systemctl start qemu-guest-agent
 
 INDEX=$1
 
