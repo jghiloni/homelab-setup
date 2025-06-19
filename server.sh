@@ -5,6 +5,7 @@ set -e
 INDEX=$1
 
 sudo hostname k3s-server-$INDEX
+echo k3s-server-$INDEX | sudo tee /etc/hostname
 
 export newIP="192.168.65.${INDEX}/18"
 
